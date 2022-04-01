@@ -18,7 +18,7 @@ public class BasicMovement : MonoBehaviour
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        transform.position = transform.position + horizontal * Time.deltaTime;
+        transform.position = transform.position + horizontal * Time.deltaTime * 3;
 
 
     }
