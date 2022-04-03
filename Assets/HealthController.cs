@@ -6,26 +6,20 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
 
-    public int playerHealth;
+    public int playerHealth = 3;
+
     [SerializeField] private Image[] hearts;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        UpdateHealth();
+       UpdateHealth();        
     }
 
+    // Update is called once per frame
     public void UpdateHealth()
     {
-
-        /* 
-        if (playerHealth <= 0)
-        {
-            Restart the game/respawn
-        }
-        */ 
-
-
+        
         for (int i = 0; i < hearts.Length; i++)
         {
             if(i < playerHealth)
@@ -36,7 +30,6 @@ public class HealthController : MonoBehaviour
                 hearts[i].color = Color.black;
             }
         }
+        
     }
-
-
 }

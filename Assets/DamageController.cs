@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageController : MonoBehaviour
 {
 
-    [SerializeField] private int itemDamage;
+    [SerializeField] private int bombDamage;
     [SerializeField] private HealthController _healthController;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,9 +18,9 @@ public class DamageController : MonoBehaviour
 
     void Damage()
     {
-        _healthController.playerHealth =- itemDamage;
+        _healthController.playerHealth -= bombDamage;
         _healthController.UpdateHealth();
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // Makes the item disappear after collision
     }
 
 }
