@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageController : MonoBehaviour
+public class ItemHealController : MonoBehaviour
 {
 
-    [SerializeField] private int itemDamage;
+    [SerializeField] private int itemHeal = 1;
     [SerializeField] private HealthController _healthController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Damage();
+            Heal();
         }
     }
 
-    void Damage()
+    void Heal()
     {
-        _healthController.playerHealth -= itemDamage;
+        _healthController.playerHealth += itemHeal;
         _healthController.UpdateHealth();
         gameObject.SetActive(false); // Makes the item disappear after collision
     }
