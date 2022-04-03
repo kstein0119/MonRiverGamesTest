@@ -25,6 +25,7 @@ public class HealthController : MonoBehaviour
             if(i < playerHealth)
             {
                 hearts[i].color = Color.red;
+                
             } else
             {
                 hearts[i].color = Color.black;

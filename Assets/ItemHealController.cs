@@ -18,7 +18,11 @@ public class ItemHealController : MonoBehaviour
 
     void Heal()
     {
-        _healthController.playerHealth += itemHeal;
+        if(_healthController.playerHealth < 3) // If statement prevents overhealing 
+        {
+            _healthController.playerHealth += itemHeal;
+        }
+        
         _healthController.UpdateHealth();
         gameObject.SetActive(false); // Makes the item disappear after collision
     }
