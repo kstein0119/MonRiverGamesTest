@@ -8,11 +8,21 @@ public class DamageController : MonoBehaviour
     [SerializeField] private int itemDamage;
     [SerializeField] private HealthController _healthController;
 
+    public AudioSource hiss;
+
+    /* private void Start()
+    {
+        hiss = GetComponent<AudioSource>();
+    } */
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+
+            hiss.Play();
             Damage();
+            
         }
     }
 

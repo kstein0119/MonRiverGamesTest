@@ -8,10 +8,13 @@ public class ItemHealController : MonoBehaviour
     [SerializeField] private int itemHeal = 1;
     [SerializeField] private HealthController _healthController;
 
+    public AudioSource crunch;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            crunch.Play();
             Heal();
         }
     }
