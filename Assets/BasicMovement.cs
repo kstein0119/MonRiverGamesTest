@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
     public Animator animator;
     public bool isGrounded = false;
-    public float jumpHeight = 5f;
+    public float jumpHeight = 8f;
+    // Set default values for moveSpeed and jumpHeight, but also editable in Unity UI
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Jump(); 
@@ -25,17 +19,16 @@ public class BasicMovement : MonoBehaviour
         Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position = transform.position + horizontal * Time.deltaTime * moveSpeed;
 
-
     }
 
     void Jump()
     {
+
         if (Input.GetButtonDown("Jump") && isGrounded == true) {
 
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
 
         }
-
 
     }
 

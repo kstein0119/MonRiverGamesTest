@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class HealthController : MonoBehaviour
 
     [SerializeField] private Image[] hearts;
 
-    // Start is called before the first frame update
     private void Start()
     {
        UpdateHealth();        
     }
 
-    // Update is called once per frame
+    // Update heart UI depending on current playerHealth
     public void UpdateHealth()
     {
-        
+
         for (int i = 0; i < hearts.Length; i++)
         {
             if(i < playerHealth)
@@ -31,6 +31,13 @@ public class HealthController : MonoBehaviour
                 hearts[i].color = Color.black;
             }
         }
-        
+
+
+        // Restart level if player runs out of health
+        if (playerHealth < 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 }

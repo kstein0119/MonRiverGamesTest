@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform playerClark;
     public float cameraDistance = 30f;
+    // Set default value for cameraDistance, but also editable in the Unity UI
 
     void Awake()
     {
@@ -17,15 +18,4 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(playerClark.position.x, playerClark.position.y, transform.position.z);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
